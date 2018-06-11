@@ -645,7 +645,8 @@ public class RequestParams implements Serializable {
             List list = (List) value;
             int listSize = list.size();
             for (int nestedValueIndex = 0; nestedValueIndex < listSize; nestedValueIndex++) {
-                params.addAll(getParamsList(String.format(Locale.US, "%s[%d]", key, nestedValueIndex), list.get(nestedValueIndex)));
+                params.addAll(getParamsList(String.format(Locale.US, "%s[]", key), list.get(nestedValueIndex)));
+                // params.addAll(getParamsList(String.format(Locale.US, "%s[%d]", key, nestedValueIndex), list.get(nestedValueIndex)));
             }
         } else if (value instanceof Object[]) {
             Object[] array = (Object[]) value;
